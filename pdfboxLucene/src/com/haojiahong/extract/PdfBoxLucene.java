@@ -38,6 +38,7 @@ public class PdfBoxLucene {
 			indexWriter = new IndexWriter(dir, iwc);
 			for (File file : fileList) {
 				File pdFile = new File(file.getPath());
+				// 将pdf文件生成Lucene的索引文档。有一个默认的格式。但是pdf的文档内容只生成索引，不储存内容
 				Document d = LucenePDFDocument.getDocument(pdFile);
 				indexWriter.addDocument(d);
 			}
